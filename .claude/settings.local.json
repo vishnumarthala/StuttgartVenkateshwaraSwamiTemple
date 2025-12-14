@@ -5,7 +5,17 @@
       "Bash(npx create-next-app@latest:*)",
       "Bash(npm install)",
       "Bash(npm run build:*)",
-      "Bash(del publicimagesplaceholder.jpg)"
+      "Bash(del publicimagesplaceholder.jpg)",
+      "Bash(if [ -d \"app\" ])",
+      "Bash(then echo \"=== app directory ===\")",
+      "Bash(fi)",
+      "Bash(if [ -d \"pages\" ])",
+      "Bash(then echo \"=== pages directory ===\")",
+      "Bash(if [ -d \"src/app\" ])",
+      "Bash(then echo \"=== src/app directory ===\")",
+      "Bash(if [ -d \"src/pages\" ])",
+      "Bash(then echo \"=== src/pages directory ===\")",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
