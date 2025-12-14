@@ -15,7 +15,10 @@
       "Bash(then echo \"=== src/app directory ===\")",
       "Bash(if [ -d \"src/pages\" ])",
       "Bash(then echo \"=== src/pages directory ===\")",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
