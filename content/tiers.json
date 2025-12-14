@@ -1,0 +1,81 @@
+[
+  {
+    "id": "tier-1",
+    "name": "Tier 1",
+    "minAmount": 116,
+    "maxAmount": 250,
+    "benefits": [
+      "Kumkum Prasadam from Kumbhabhishekam"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-tier1",
+      "paypal": "https://paypal.me/SVTStuttgart/116"
+    },
+    "highlighted": false
+  },
+  {
+    "id": "tier-2",
+    "name": "Tier 2",
+    "minAmount": 251,
+    "maxAmount": 500,
+    "benefits": [
+      "Kumkum Prasadam from Kumbhabhishekam",
+      "Archana on a special day"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-tier2",
+      "paypal": "https://paypal.me/SVTStuttgart/251"
+    },
+    "highlighted": false
+  },
+  {
+    "id": "tier-3",
+    "name": "Tier 3",
+    "minAmount": 501,
+    "maxAmount": 2000,
+    "benefits": [
+      "Kumkum Prasadam from Kumbhabhishekam",
+      "Archana on a special day",
+      "Ashtotra Archana for 1 year (every Ekhadashi)"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-tier3",
+      "paypal": "https://paypal.me/SVTStuttgart/501"
+    },
+    "highlighted": true
+  },
+  {
+    "id": "tier-4",
+    "name": "Tier 4",
+    "minAmount": 2001,
+    "maxAmount": 5000,
+    "benefits": [
+      "Kumkum Prasadam from Kumbhabhishekam",
+      "Archana on a special day",
+      "Ashtotra Archana for 1 year (every Ekhadashi)",
+      "1 Day Ubhayam during Kumbhabhishekam"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-tier4",
+      "paypal": "https://paypal.me/SVTStuttgart/2001"
+    },
+    "highlighted": false
+  },
+  {
+    "id": "tier-5",
+    "name": "Tier 5",
+    "minAmount": 5001,
+    "maxAmount": null,
+    "benefits": [
+      "Kumkum Prasadam from Kumbhabhishekam",
+      "Archana on a special day",
+      "Ashtotra Archana for 1 year (every Ekhadashi)",
+      "Ubhayam for complete 5-Day Event"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-tier5",
+      "paypal": "https://paypal.me/SVTStuttgart/5001"
+    },
+    "highlighted": false
+  }
+]

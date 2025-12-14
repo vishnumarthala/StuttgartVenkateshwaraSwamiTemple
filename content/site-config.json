@@ -1,0 +1,18 @@
+{
+  "title": "Sri Venkateshwara Temple Stuttgart",
+  "legalName": "Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.",
+  "iban": "DE78 6025 0010 0015 0155 65",
+  "contactEmail": "Psvtstuttgart@gmail.com",
+  "contactPhone": "+49 152 55749792",
+  "address": {
+    "street": "Wankelstrasse 4/A",
+    "city": "Renningen",
+    "postalCode": "71272",
+    "country": "Germany"
+  },
+  "representative": "Sri Kumaran Sharma",
+  "announcement": {
+    "isActive": false,
+    "text": ""
+  }
+}

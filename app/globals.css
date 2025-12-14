@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-temple-cream text-temple-dark-gray font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-temple-dark-red;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-temple-gold text-temple-dark-gray font-semibold px-6 py-3 rounded-lg
+           hover:bg-yellow-400 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-temple-gold focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-temple-maroon text-white font-semibold px-6 py-3 rounded-lg
+           hover:bg-red-900 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-temple-maroon focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-serif text-temple-dark-red mb-4;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
