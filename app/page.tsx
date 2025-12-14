@@ -1,4 +1,6 @@
 import Hero from '@/components/home/Hero';
+import AudioPlayer from '@/components/AudioPlayer';
+import SacredMantra from '@/components/home/SacredMantra';
 import MissionStatement from '@/components/home/MissionStatement';
 import ProgressTimeline from '@/components/home/ProgressTimeline';
 import { getMilestones, getDonationTiers } from '@/lib/content';
@@ -11,15 +13,30 @@ export default function HomePage() {
 
   return (
     <>
+      {/* 1. Divine Hero with Full-Screen Swami Photo */}
       <Hero />
-      <MissionStatement />
-      <ProgressTimeline milestones={milestones} />
 
-      {/* Quick Donation CTA */}
-      <section className="py-16 md:py-24 bg-temple-cream">
+      {/* 2. Audio Player (floating, always visible) */}
+      <AudioPlayer />
+
+      {/* 3. Sacred Mantra Section */}
+      <SacredMantra />
+
+      {/* 4. Temple Story (enhanced Mission) */}
+      <MissionStatement />
+
+      {/* 5. How to Participate - Combined Section */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="section-heading">Be Part of This Sacred Mission</h2>
+          <h2 className="section-heading text-center mb-12">
+            Join This Sacred Mission
+          </h2>
+
+          {/* Timeline Preview */}
+          <ProgressTimeline milestones={milestones} />
+
+          {/* Donation CTA */}
+          <div className="mt-16 max-w-4xl mx-auto text-center">
             <p className="text-lg text-temple-dark-gray mb-8">
               Your contribution, no matter the size, brings us closer to our dream.
               Every donation is a blessing that will be remembered in the temple&apos;s
@@ -27,7 +44,7 @@ export default function HomePage() {
             </p>
 
             {/* Featured Tier */}
-            <div className="card max-w-md mx-auto mb-8 border-2 border-temple-gold">
+            <div className="card max-w-md mx-auto mb-8 border-2 border-temple-gold hover-elevate">
               <div className="bg-temple-gold text-temple-dark-gray text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
                 Most Popular
               </div>
@@ -64,8 +81,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bank Transfer Info */}
-      <section className="py-12 bg-white">
+      {/* 6. Bank Transfer Info */}
+      <section className="py-12 bg-temple-cream">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-xl font-serif text-temple-dark-red mb-4">

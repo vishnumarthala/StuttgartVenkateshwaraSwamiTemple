@@ -1,21 +1,37 @@
 export default function MissionStatement() {
   return (
-    <section className="py-16 md:py-24 bg-temple-cream">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-heading">From Clay to Consecration</h2>
+    <section className="relative py-20 md:py-28 bg-temple-cream overflow-hidden">
+      {/* Divine Light Rays Background */}
+      <div className="absolute inset-0 light-rays opacity-30" />
 
-          <p className="text-lg text-temple-dark-gray leading-relaxed mb-8">
-            Sri Venkateshwara Temple Stuttgart is more than a construction project —
-            it is a sacred mission to create a spiritual home for the Hindu community
-            in Baden-Württemberg. Following ancient Agama Shastra traditions, we are
-            committed to building a temple that honors Lord Venkateshwara while
-            serving as a cultural bridge between India and Germany.
-          </p>
+      <div className="container-custom relative z-10">
+        {/* Narrative Introduction */}
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="section-heading mb-8">Our Sacred Journey</h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+          <div className="space-y-6 text-lg text-temple-dark-gray leading-relaxed">
+            <p>
+              In the heart of Stuttgart, a divine vision is taking shape. Our community of
+              devoted souls is coming together to build a sacred home for Lord Venkateshwara—a
+              spiritual sanctuary that will serve generations to come.
+            </p>
+            <p>
+              Sri Venkateshwara Temple Stuttgart is more than a construction project. It is
+              a sacred mission to create a spiritual haven for the Hindu community in
+              Baden-Württemberg. Following ancient Agama Shastra traditions, we are committed
+              to building a temple that honors Lord Venkateshwara while serving as a cultural
+              bridge between India and Germany.
+            </p>
+            <p className="text-temple-maroon font-serif italic text-xl">
+              This temple will be a beacon of our shared values, traditions, and unwavering faith.
+            </p>
+          </div>
+        </div>
+
+        {/* Three Pillars */}
+        <div className="grid md:grid-cols-3 gap-8">
             {/* Mission Point 1 */}
-            <div className="card text-center">
+            <div className="card fabric-texture hover-elevate animate-gentle-scale text-center">
               <div className="w-16 h-16 bg-temple-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-temple-maroon"
@@ -41,7 +57,7 @@ export default function MissionStatement() {
             </div>
 
             {/* Mission Point 2 */}
-            <div className="card text-center">
+            <div className="card fabric-texture hover-elevate animate-gentle-scale text-center" style={{ animationDelay: '150ms' }}>
               <div className="w-16 h-16 bg-temple-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-temple-maroon"
@@ -67,7 +83,7 @@ export default function MissionStatement() {
             </div>
 
             {/* Mission Point 3 */}
-            <div className="card text-center">
+            <div className="card fabric-texture hover-elevate animate-gentle-scale text-center" style={{ animationDelay: '300ms' }}>
               <div className="w-16 h-16 bg-temple-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-temple-maroon"
@@ -93,7 +109,6 @@ export default function MissionStatement() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }
