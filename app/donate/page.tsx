@@ -61,21 +61,21 @@ export default function DonatePage() {
           </div>
 
           {/* Bank Transfer Option */}
-          <div className="card bg-temple-maroon text-white">
-            <h2 className="text-xl font-serif text-temple-gold mb-4">
+          <div className="card border-2 border-temple-gold bg-temple-cream">
+            <h2 className="text-xl font-serif text-temple-dark-red mb-4">
               Bank Transfer Option
             </h2>
-            <p className="text-gray-200 mb-4">
+            <p className="text-temple-dark-gray mb-4">
               If you prefer to donate via direct bank transfer, please use the
               following details:
             </p>
-            <div className="bg-white/10 rounded-lg p-4">
-              <p className="font-mono text-lg mb-2">IBAN: {config.iban}</p>
-              <p className="text-sm text-gray-300">
+            <div className="bg-temple-gold/20 border border-temple-gold/40 rounded-lg p-4">
+              <p className="font-mono text-lg mb-2 text-temple-dark-gray">IBAN: {config.iban}</p>
+              <p className="text-sm text-temple-dark-gray">
                 Account Holder: {config.legalName}
               </p>
             </div>
-            <p className="text-sm text-gray-300 mt-4">
+            <p className="text-sm text-temple-dark-gray mt-4">
               Please include your name and email in the transfer reference so we
               can send you a confirmation and tax receipt if applicable.
             </p>

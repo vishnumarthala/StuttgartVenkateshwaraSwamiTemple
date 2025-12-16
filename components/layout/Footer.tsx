@@ -66,7 +66,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href="mailto:Psvtstuttgart@gmail.com" className="hover:text-temple-gold transition-colors">
-                  Psvtstuttgart@gmail.com
+                  svtstuttgart@gmail.com
                 </a>
               </p>
             </address>
