@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import TierGrid from '@/components/donation/TierGrid';
-import { getDonationTiers, getSiteConfig } from '@/lib/content';
+import { Metadata } from "next";
+import TierGrid from "@/components/donation/TierGrid";
+import { getDonationTiers, getSiteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: 'Donate',
+  title: "Donate",
   description:
-    'Support the construction of Sri Venkateshwara Temple Stuttgart. Choose from various donation tiers and receive blessings.',
+    "Support the construction of Sri Venkateshwara Temple Stuttgart. Choose from various donation tiers and receive blessings.",
 };
 
 export default function DonatePage() {
@@ -40,9 +40,9 @@ export default function DonatePage() {
               Tax Receipts
             </h2>
             <p className="text-temple-dark-gray">
-              For donations of <strong>€300 or more</strong>, we will provide a tax
-              receipt (Spendenquittung) for German tax purposes. Please ensure your
-              billing address is correct during checkout.
+              For donations of <strong>€300 or more</strong>, we will provide a
+              tax receipt (Spendenquittung) for German tax purposes. Please
+              ensure your billing address is correct during checkout.
             </p>
           </div>
 
@@ -53,8 +53,10 @@ export default function DonatePage() {
             </h2>
             <p className="text-temple-dark-gray">
               For Tier 2 and above, we will perform Archana in your name. Please
-              provide your <strong>Gotram (family name)</strong> during checkout so
-              we can correctly perform the rituals in your honor.
+              provide your{" "}
+              <strong>family member details with Gotram & Nakshatram</strong>{" "}
+              during checkout so we can correctly perform the rituals in your
+              honor.
             </p>
           </div>
 
@@ -74,8 +76,8 @@ export default function DonatePage() {
               </p>
             </div>
             <p className="text-sm text-gray-300 mt-4">
-              Please include your name and email in the transfer reference so we can
-              send you a confirmation and tax receipt if applicable.
+              Please include your name and email in the transfer reference so we
+              can send you a confirmation and tax receipt if applicable.
             </p>
           </div>
         </div>

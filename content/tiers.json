@@ -4,9 +4,7 @@
     "name": "Tier 1",
     "minAmount": 116,
     "maxAmount": 250,
-    "benefits": [
-      "Kumkum Prasadam from Kumbhabhishekam"
-    ],
+    "benefits": ["Kumkum Prasadam from Kumbhabhishekam"],
     "paymentLinks": {
       "stripe": "https://buy.stripe.com/placeholder-tier1",
       "paypal": "https://paypal.me/SVTStuttgart/116"
@@ -20,7 +18,7 @@
     "maxAmount": 500,
     "benefits": [
       "Kumkum Prasadam from Kumbhabhishekam",
-      "Archana on a special day"
+      "Archana on a special day in the first year in the first year"
     ],
     "paymentLinks": {
       "stripe": "https://buy.stripe.com/placeholder-tier2",
@@ -35,8 +33,8 @@
     "maxAmount": 2000,
     "benefits": [
       "Kumkum Prasadam from Kumbhabhishekam",
-      "Archana on a special day",
-      "Ashtotra Archana for 1 year (every Ekhadashi)"
+      "Archana on a special day in the first year",
+      "Ashtotra Archana for 1 year (on every Ekhadashi - 24 times)"
     ],
     "paymentLinks": {
       "stripe": "https://buy.stripe.com/placeholder-tier3",
@@ -51,8 +49,8 @@
     "maxAmount": 5000,
     "benefits": [
       "Kumkum Prasadam from Kumbhabhishekam",
-      "Archana on a special day",
-      "Ashtotra Archana for 1 year (every Ekhadashi)",
+      "Archana on a special day in the first year",
+      "Ashtotra Archana for 1 year (on every Ekhadashi - 24 times)",
       "1 Day Ubhayam during Kumbhabhishekam"
     ],
     "paymentLinks": {
@@ -68,9 +66,9 @@
     "maxAmount": null,
     "benefits": [
       "Kumkum Prasadam from Kumbhabhishekam",
-      "Archana on a special day",
-      "Ashtotra Archana for 1 year (every Ekhadashi)",
-      "Ubhayam for complete 5-Day Event"
+      "Archana on a special day in the first year",
+      "Ashtotra Archana for 1 year (on every Ekhadashi - 24 times)",
+      "Ubhayam for the complete Kumbhabhishekam 5-Days Event"
     ],
     "paymentLinks": {
       "stripe": "https://buy.stripe.com/placeholder-tier5",

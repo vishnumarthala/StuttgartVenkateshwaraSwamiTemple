@@ -11,39 +11,38 @@
     "id": "milestone-2",
     "title": "Land Acquisition",
     "description": "Secured location at Wankelstrasse 4/A, Renningen",
-    "date": "2024-06-01",
+    "date": "2025-11-01",
     "status": "completed",
     "icon": "map"
   },
   {
     "id": "milestone-3",
-    "title": "Fundraising Campaign",
-    "description": "Launch of E-Hundi digital donation platform",
-    "date": "2025-01-01",
-    "status": "in-progress",
+    "title": "Bhumi pooja Ceremony",
+    "description": "Bhoomi Puja and foundation stone laying",
+    "date": "2025-11-01",
+    "status": "completed",
     "icon": "heart"
   },
   {
     "id": "milestone-4",
-    "title": "Temple Design",
-    "description": "Architectural plans and Vastu consultation",
-    "date": "2025-06-01",
-    "status": "upcoming",
-    "icon": "pencil"
+    "title": "Construction Begins",
+    "description": "Temple Mandapas construction based on agama shastra started by sthapathi",
+    "date": "2025-11-01",
+    "status": "in-progress",
+    "icon": "hammer"
   },
   {
     "id": "milestone-5",
-    "title": "Construction Begins",
-    "description": "Bhoomi Puja and foundation stone laying",
-    "date": "2026-01-01",
-    "status": "upcoming",
-    "icon": "hammer"
+    "title": "Fundraising Campaign",
+    "description": "Launch of E-Hundi digital donation platform",
+    "date": "2025-12-01",
+    "status": "in-progress",
+    "icon": "heart"
   },
   {
     "id": "milestone-6",
     "title": "Kumbhabhishekam",
     "description": "Grand consecration ceremony",
-    "date": "2027-01-01",
     "status": "upcoming",
     "icon": "sparkles"
   }
