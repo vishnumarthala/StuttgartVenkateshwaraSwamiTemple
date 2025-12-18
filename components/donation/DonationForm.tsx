@@ -18,10 +18,13 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
     message: '',
   });
 
+  const [amount, setAmount] = useState<string>(tier.minAmount.toString());
+
   const [errors, setErrors] = useState<{
     name?: string;
     email?: string;
     gotram?: string;
+    amount?: string;
   }>({});
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -30,7 +33,8 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
   const isGotramRequired = tier.minAmount >= 201;
 
   // Check if eligible for tax receipt (€300+)
-  const isTaxReceiptEligible = tier.minAmount >= 300;
+  const parsedAmount = parseFloat(amount) || 0;
+  const isTaxReceiptEligible = parsedAmount >= 300;
 
   const validateForm = () => {
     const newErrors: typeof errors = {};
@@ -48,6 +52,16 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
 
     if (isGotramRequired && !donorInfo.gotram?.trim()) {
       newErrors.gotram = 'Gotram is required for this tier';
+    }
+
+    // Validate amount
+    const numAmount = parseFloat(amount);
+    if (!amount || isNaN(numAmount)) {
+      newErrors.amount = 'Please enter a valid amount';
+    } else if (numAmount < tier.minAmount) {
+      newErrors.amount = `Minimum amount for this tier is €${tier.minAmount}`;
+    } else if (tier.maxAmount && numAmount > tier.maxAmount) {
+      newErrors.amount = `Maximum amount for this tier is €${tier.maxAmount}`;
     }
 
     setErrors(newErrors);
@@ -129,6 +143,36 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
 
           {/* Donor Information Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Amount Field */}
+            <div>
+              <label
+                htmlFor="amount"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Donation Amount (€) <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="number"
+                id="amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                onBlur={handleBlur}
+                min={tier.minAmount}
+                max={tier.maxAmount || undefined}
+                step="0.01"
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                  errors.amount ? 'border-red-500' : 'border-gray-300'
+                }`}
+                placeholder={`Enter amount (€${tier.minAmount} - €${tier.maxAmount || '∞'})`}
+              />
+              {errors.amount && (
+                <p className="mt-1 text-sm text-red-600">{errors.amount}</p>
+              )}
+              <p className="mt-1 text-xs text-gray-500">
+                Range: €{tier.minAmount} - €{tier.maxAmount || '∞'}
+              </p>
+            </div>
+
             {/* Name Field */}
             <div>
               <label
@@ -223,7 +267,7 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
             <div className="pt-4">
               {isFormValid ? (
                 <PayPalButton
-                  amount={tier.minAmount}
+                  amount={parsedAmount}
                   tierName={tier.name}
                   donorInfo={donorInfo}
                   onSuccess={() => {
