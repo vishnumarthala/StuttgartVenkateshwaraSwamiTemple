@@ -59,3 +59,70 @@ export interface GalleryImage {
   alt: string;
   category?: string;
 }
+
+// PayPal Donation Types
+export interface DonorInfo {
+  name: string;
+  email: string;
+  gotram?: string;
+  message?: string;
+}
+
+export interface PayPalOrderRequest {
+  amount: number;
+  tierName: string;
+  donorInfo: DonorInfo;
+}
+
+export interface PayPalOrderResponse {
+  orderId: string;
+}
+
+export interface PayPalCaptureResponse {
+  success: boolean;
+  transactionId?: string;
+  error?: string;
+}
+
+// Database Types
+export interface Donation {
+  id: string;
+  paypal_order_id: string;
+  paypal_transaction_id: string | null;
+  amount: number;
+  currency: string;
+  tier_name: string;
+  donor_name: string;
+  donor_email: string;
+  donor_gotram: string | null;
+  donor_message: string | null;
+  status: 'pending' | 'completed' | 'failed' | 'refunded';
+  tax_receipt_eligible: boolean;
+  tax_receipt_sent: boolean;
+  tax_receipt_sent_at: string | null;
+  created_at: string;
+  captured_at: string | null;
+  updated_at: string;
+}
+
+export interface DonationInsert {
+  paypal_order_id: string;
+  amount: number;
+  currency?: string;
+  tier_name: string;
+  donor_name: string;
+  donor_email: string;
+  donor_gotram?: string;
+  donor_message?: string;
+  status: 'pending' | 'completed' | 'failed';
+  tax_receipt_eligible?: boolean;
+}
+
+export interface DonationAnalytics {
+  tier_name: string;
+  donation_count: number;
+  total_amount: number;
+  avg_amount: number;
+  first_donation: string;
+  last_donation: string;
+}

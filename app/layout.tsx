@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Cinzel } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import PayPalProvider from '@/components/PayPalProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -51,9 +52,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${cinzel.variable}`}>
       <body className="min-h-screen flex flex-col font-sans">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <PayPalProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </PayPalProvider>
       </body>
     </html>
   );

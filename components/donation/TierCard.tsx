@@ -3,9 +3,10 @@ import { formatAmountRange } from '@/lib/utils';
 
 interface TierCardProps {
   tier: DonationTier;
+  onPayPalClick?: (tier: DonationTier) => void;
 }
 
-export default function TierCard({ tier }: TierCardProps) {
+export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
   const isHighlighted = tier.highlighted;
 
   return (
@@ -58,14 +59,12 @@ export default function TierCard({ tier }: TierCardProps) {
         >
           Pay with Card
         </a>
-        <a
-          href={tier.paymentLinks.paypal}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => onPayPalClick?.(tier)}
           className="w-full text-center block bg-[#0070ba] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#005ea6] transition-colors"
         >
           Pay with PayPal
-        </a>
+        </button>
       </div>
     </div>
   );
