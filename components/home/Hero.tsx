@@ -5,6 +5,14 @@ import ScrollArrow from '@/components/icons/ScrollArrow';
 export default function Hero() {
   return (
     <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden">
+      {/* Temple Background Gradient */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at center, #2d1810 0%, #4a1010 35%, #6b2020 60%, #1a0a00 100%)'
+        }}
+      />
+
       {/* Background Image Layer */}
       <div className="absolute inset-0">
         <Image
@@ -18,19 +26,28 @@ export default function Hero() {
         />
       </div>
 
-      {/* Gradient Overlay for text readability */}
+      {/* Subtle Overlay for depth */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)'
+          background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.5) 100%)'
         }}
       />
 
       {/* Divine Light Rays */}
-      <div className="absolute inset-0 divine-rays" />
+      <div className="absolute inset-0 divine-rays opacity-40" />
+      
+      {/* Golden Glow Effect */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 80% at center, rgba(218, 165, 32, 0.15) 0%, transparent 50%)',
+          mixBlendMode: 'screen'
+        }}
+      />
 
       {/* Content Layer */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+      <div className="relative z-10 min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-4 pb-24">
         {/* Om Symbol with gentle pulse */}
         <div className="animate-gentle-pulse mb-8">
           <OmSymbol className="w-16 h-16 md:w-20 md:h-20" />
@@ -46,12 +63,12 @@ export default function Hero() {
           ॐ नमो वेंकटेशाय
         </p>
 
-        <p className="text-white/90 text-lg md:text-xl text-center animate-fade-in-delayed italic">
+        <p className="text-white/90 text-lg md:text-xl text-center animate-fade-in-delayed italic mb-16 md:mb-0">
           Om Namo Venkateshaya
         </p>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-float cursor-pointer">
+        <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 animate-float cursor-pointer">
           <ScrollArrow className="w-10 h-10" />
           <p className="text-temple-gold text-sm mt-2 text-center">Scroll</p>
         </div>
