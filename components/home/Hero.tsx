@@ -4,7 +4,7 @@ import ScrollArrow from '@/components/icons/ScrollArrow';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[calc(100vh-5rem)] overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0">
         <Image

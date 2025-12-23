@@ -1,6 +1,13 @@
-const PAYPAL_API_BASE = process.env.NEXT_PUBLIC_PAYPAL_MODE === 'sandbox'
-  ? 'https://api-m.sandbox.paypal.com'
-  : 'https://api-m.paypal.com';
+function getPayPalMode(): 'sandbox' | 'live' {
+  const mode = (process.env.PAYPAL_MODE || process.env.NEXT_PUBLIC_PAYPAL_MODE || 'sandbox').toLowerCase();
+  return mode === 'live' ? 'live' : 'sandbox';
+}
+
+function getPayPalApiBase(): string {
+  return getPayPalMode() === 'sandbox'
+    ? 'https://api-m.sandbox.paypal.com'
+    : 'https://api-m.paypal.com';
+}
 
 let cachedAccessToken: { token: string; expiresAt: number } | null = null;
 
@@ -10,17 +17,20 @@ export async function getPayPalAccessToken(): Promise<string> {
     return cachedAccessToken.token;
   }
 
-  const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+  // Server-side credentials (do NOT expose secrets to the browser)
+  const clientId = process.env.PAYPAL_CLIENT_ID || process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
   const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
 
   if (!clientId || !clientSecret) {
-    throw new Error('PayPal credentials not configured');
+    throw new Error(
+      'PayPal credentials not configured. Set PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET (and optionally PAYPAL_MODE).'
+    );
   }
 
   const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
   try {
-    const response = await fetch(`${PAYPAL_API_BASE}/v1/oauth2/token`, {
+    const response = await fetch(`${getPayPalApiBase()}/v1/oauth2/token`, {
       method: 'POST',
       headers: {
         'Authorization': `Basic ${auth}`,
@@ -55,7 +65,7 @@ export async function createPayPalOrder(
   const accessToken = await getPayPalAccessToken();
 
   try {
-    const response = await fetch(`${PAYPAL_API_BASE}/v2/checkout/orders`, {
+    const response = await fetch(`${getPayPalApiBase()}/v2/checkout/orders`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -105,7 +115,7 @@ export async function capturePayPalOrder(orderId: string): Promise<{
 
   try {
     const response = await fetch(
-      `${PAYPAL_API_BASE}/v2/checkout/orders/${orderId}/capture`,
+      `${getPayPalApiBase()}/v2/checkout/orders/${orderId}/capture`,
       {
         method: 'POST',
         headers: {

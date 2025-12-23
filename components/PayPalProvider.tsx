@@ -26,10 +26,6 @@ export default function PayPalProvider({ children }: PayPalProviderProps) {
     'data-client-token': undefined,
   };
 
-  // Log for debugging
-  console.log('PayPal Mode:', mode);
-  console.log('Client ID:', clientId?.substring(0, 20) + '...');
-
   return (
     <PayPalScriptProvider options={initialOptions}>
       {children}

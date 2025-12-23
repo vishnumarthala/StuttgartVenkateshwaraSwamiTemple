@@ -143,9 +143,14 @@ The temple website features a complete donation system with:
 
 ```env
 # PayPal
+# Public (browser)
 NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_client_id
-PAYPAL_CLIENT_SECRET=your_client_secret
 NEXT_PUBLIC_PAYPAL_MODE=live
+
+# Private (server only)
+PAYPAL_CLIENT_ID=your_client_id
+PAYPAL_CLIENT_SECRET=your_client_secret
+PAYPAL_MODE=live
 
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
@@ -192,14 +197,14 @@ Edit `content/tiers.json`:
 ### Sandbox Testing
 
 1. Use PayPal sandbox credentials
-2. Set `NEXT_PUBLIC_PAYPAL_MODE=sandbox`
+2. Set `NEXT_PUBLIC_PAYPAL_MODE=sandbox` and `PAYPAL_MODE=sandbox`
 3. Create test buyer and seller accounts
 4. Test all payment scenarios
 
 ### Production Testing
 
 1. Use live PayPal credentials
-2. Set `NEXT_PUBLIC_PAYPAL_MODE=live`
+2. Set `NEXT_PUBLIC_PAYPAL_MODE=live` and `PAYPAL_MODE=live`
 3. Test with small amount (€1)
 4. Verify in PayPal dashboard
 5. Check database records
@@ -218,11 +223,13 @@ Edit `content/tiers.json`:
 **Development**:
 ```env
 NEXT_PUBLIC_PAYPAL_MODE=sandbox
+PAYPAL_MODE=sandbox
 ```
 
 **Production**:
 ```env
 NEXT_PUBLIC_PAYPAL_MODE=live
+PAYPAL_MODE=live
 ```
 
 ## Monitoring

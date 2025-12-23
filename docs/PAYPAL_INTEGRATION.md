@@ -68,9 +68,14 @@ Required variables in `.env`:
 
 ```env
 # PayPal Configuration
+# Public (browser) - safe to expose
 NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_client_id_here
-PAYPAL_CLIENT_SECRET=your_client_secret_here
 NEXT_PUBLIC_PAYPAL_MODE=live  # or 'sandbox' for testing
+
+# Private (server only) - never expose
+PAYPAL_CLIENT_ID=your_client_id_here
+PAYPAL_CLIENT_SECRET=your_client_secret_here
+PAYPAL_MODE=live  # or 'sandbox' for testing
 ```
 
 ### PayPal Credentials
@@ -80,6 +85,10 @@ NEXT_PUBLIC_PAYPAL_MODE=live  # or 'sandbox' for testing
 3. **Mode**:
    - `sandbox` - Test environment (use test credentials)
    - `live` - Production environment (real payments)
+
+Important:
+- Do not store the client secret in Supabase tables or anywhere client-accessible.
+- In production, store secrets in your hosting provider's environment variables (e.g. Vercel Project Settings → Environment Variables).
 
 ### Getting PayPal Credentials
 
@@ -211,6 +220,7 @@ Tiers are defined in `content/tiers.json`.
 1. Switch to sandbox mode:
    ```env
    NEXT_PUBLIC_PAYPAL_MODE=sandbox
+   PAYPAL_MODE=sandbox
    ```
 
 2. Use sandbox credentials from PayPal Developer Dashboard
