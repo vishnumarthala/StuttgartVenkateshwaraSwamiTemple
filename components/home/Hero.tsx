@@ -4,7 +4,7 @@ import ScrollArrow from '@/components/icons/ScrollArrow';
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-5rem)] overflow-hidden">
+    <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0">
         <Image
@@ -12,7 +12,7 @@ export default function Hero() {
           alt="Lord Venkateshwara"
           fill
           priority
-          className="object-cover object-center"
+          className=" object-contain object-center"
           quality={85}
           sizes="100vw"
         />
