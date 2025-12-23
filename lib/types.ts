@@ -30,6 +30,8 @@ export interface DonationTier {
     paypal: string;
   };
   highlighted?: boolean;
+  isFlexible?: boolean; // true for tiers that allow any amount within range
+  suggestedAmounts?: number[]; // optional suggested amounts for flexible tiers
 }
 
 // Project Update (Blog Post)

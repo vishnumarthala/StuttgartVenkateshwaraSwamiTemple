@@ -8,11 +8,14 @@ interface TierCardProps {
 
 export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
   const isHighlighted = tier.highlighted;
+  const isFlexible = tier.isFlexible;
 
   return (
     <div
       className={`card relative flex flex-col h-full ${
         isHighlighted ? 'border-2 border-temple-gold ring-2 ring-temple-gold/20' : ''
+      } ${
+        isFlexible ? 'border-2 border-green-500 ring-2 ring-green-500/20' : ''
       }`}
     >
       {isHighlighted && (
@@ -23,11 +26,35 @@ export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
         </div>
       )}
 
+      {isFlexible && (
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+          <span className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+            Any Amount
+          </span>
+        </div>
+      )}
+
       <div className="text-center mb-4">
         <h3 className="text-xl font-serif text-temple-dark-red">{tier.name}</h3>
-        <p className="text-2xl font-bold text-temple-maroon mt-2">
-          {formatAmountRange(tier.minAmount, tier.maxAmount)}
-        </p>
+        {isFlexible ? (
+          <div>
+            <p className="text-2xl font-bold text-green-700 mt-2">
+              Your Choice
+            </p>
+            {tier.suggestedAmounts && tier.suggestedAmounts.length > 0 && (
+              <p className="text-sm text-gray-600 mt-1">
+                Suggested: €{tier.suggestedAmounts.join(', €')}
+              </p>
+            )}
+            <p className="text-xs text-gray-500 mt-1">
+              (€{tier.minAmount} - €{tier.maxAmount})
+            </p>
+          </div>
+        ) : (
+          <p className="text-2xl font-bold text-temple-maroon mt-2">
+            {formatAmountRange(tier.minAmount, tier.maxAmount)}
+          </p>
+        )}
       </div>
 
       <ul className="flex-grow space-y-3 mb-6">
@@ -51,14 +78,12 @@ export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
 
       {/* Payment Buttons */}
       <div className="space-y-3">
-        <a
-          href={tier.paymentLinks.stripe}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => onPayPalClick?.(tier)}
           className="btn-primary w-full text-center block"
         >
-          Pay with Card
-        </a>
+          {isFlexible ? 'Choose Your Amount' : 'Pay with Card'}
+        </button>
         <button
           onClick={() => onPayPalClick?.(tier)}
           className="w-full text-center block bg-[#0070ba] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#005ea6] transition-colors"

@@ -106,15 +106,35 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
         {/* Content */}
         <div className="px-6 py-6">
           {/* Tier Information */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-            <h3 className="font-semibold text-amber-900 mb-2">{tier.name}</h3>
-            <p className="text-amber-800 text-sm mb-3">
-              Amount: €{tier.minAmount}
-              {tier.maxAmount && ` - €${tier.maxAmount}`}
+          <div className={`border rounded-lg p-4 mb-6 ${
+            tier.isFlexible 
+              ? 'bg-green-50 border-green-200' 
+              : 'bg-amber-50 border-amber-200'
+          }`}>
+            <h3 className={`font-semibold mb-2 ${
+              tier.isFlexible ? 'text-green-900' : 'text-amber-900'
+            }`}>
+              {tier.name}
+              {tier.isFlexible && (
+                <span className="ml-2 text-xs bg-green-600 text-white px-2 py-1 rounded-full">
+                  Flexible Amount
+                </span>
+              )}
+            </h3>
+            <p className={`text-sm mb-3 ${
+              tier.isFlexible ? 'text-green-800' : 'text-amber-800'
+            }`}>
+              {tier.isFlexible ? (
+                <>Amount Range: €{tier.minAmount} - €{tier.maxAmount || '∞'}</>
+              ) : (
+                <>Amount: €{tier.minAmount}{tier.maxAmount && ` - €${tier.maxAmount}`}</>
+              )}
             </p>
             <div className="space-y-1">
               {tier.benefits.map((benefit, index) => (
-                <p key={index} className="text-sm text-amber-900 flex items-start">
+                <p key={index} className={`text-sm flex items-start ${
+                  tier.isFlexible ? 'text-green-900' : 'text-amber-900'
+                }`}>
                   <span className="mr-2">•</span>
                   <span>{benefit}</span>
                 </p>
@@ -151,6 +171,30 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
               >
                 Donation Amount (€) <span className="text-red-500">*</span>
               </label>
+              
+              {/* Suggested Amounts for Flexible Tier */}
+              {tier.isFlexible && tier.suggestedAmounts && tier.suggestedAmounts.length > 0 && (
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {tier.suggestedAmounts.map((suggestedAmount) => (
+                    <button
+                      key={suggestedAmount}
+                      type="button"
+                      onClick={() => {
+                        setAmount(suggestedAmount.toString());
+                        setTimeout(validateForm, 0);
+                      }}
+                      className={`px-4 py-2 rounded-lg border-2 transition-all ${
+                        parseFloat(amount) === suggestedAmount
+                          ? 'border-green-600 bg-green-50 text-green-900 font-semibold'
+                          : 'border-gray-300 bg-white text-gray-700 hover:border-green-400'
+                      }`}
+                    >
+                      €{suggestedAmount}
+                    </button>
+                  ))}
+                </div>
+              )}
+              
               <input
                 type="number"
                 id="amount"

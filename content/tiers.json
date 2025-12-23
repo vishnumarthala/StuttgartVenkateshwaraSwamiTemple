@@ -1,5 +1,22 @@
 [
   {
+    "id": "general",
+    "name": "General Donation",
+    "minAmount": 10,
+    "maxAmount": 115,
+    "benefits": [
+      "Blessings from Lord Venkateshwara",
+      "Recognition on our donor wall"
+    ],
+    "paymentLinks": {
+      "stripe": "https://buy.stripe.com/placeholder-general",
+      "paypal": "https://paypal.me/SVTStuttgart"
+    },
+    "highlighted": false,
+    "isFlexible": true,
+    "suggestedAmounts": [25, 50, 75, 100]
+  },
+  {
     "id": "tier-1",
     "name": "Tier 1",
     "minAmount": 116,
