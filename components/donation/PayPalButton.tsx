@@ -119,28 +119,28 @@ export default function PayPalButton({
             setIsProcessing(false);
             const errorMessage =
               error instanceof Error
-                ? error.message. Please try again or contact support.';
+                ? error.message
+                : 'Failed to complete payment. Please try again or contact support.';
             setError(errorMessage);
             if (onError) {
               onError(errorMessage);
-            }'There was an error processing your payment. Please try again or contact support.'
-            );
+            }
           }
         }}
         onCancel={() => {
           setIsProcessing(false);
-          alert('Payment was cancelled. You can try again when ready.');
+          setError('Payment was cancelled. You can try again when ready.');
         }}
-        onsetError={(err) => {
+        onError={(err) => {
           setIsProcessing(false);
           console.error('PayPal error:', err);
-          const errorMessage = 'An error occurred with PayPal. Please try again.';
-          if (onError) {
-            onError(errorMessage);This might be due to configuration issues. Please contact support if the problem persists.';
+          const errorMessage = 'An error occurred with PayPal. This might be due to configuration issues. Please contact support if the problem persists.';
           setError(errorMessage);
           if (onError) {
             onError(errorMessage);
           }
+        }}
+      />
     </div>
   );
 }
