@@ -47,7 +47,7 @@ export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
               </p>
             )}
             <p className="text-xs text-gray-500 mt-1">
-              (€{tier.minAmount} - €{tier.maxAmount})
+              ({formatAmountRange(tier.minAmount, tier.maxAmount)})
             </p>
           </div>
         ) : (
