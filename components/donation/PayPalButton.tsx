@@ -22,9 +22,22 @@ export default function PayPalButton({
 }: PayPalButtonProps) {
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <div className="w-full">
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg mb-4">
+          <p className="font-semibold mb-1">Payment Error</p>
+          <p className="text-sm">{error}</p>
+          <button
+            onClick={() => setError(null)}
+            className="text-sm underline mt-2 hover:text-red-900"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
       {isProcessing && (
         <div className="text-center text-sm text-gray-600 mb-2">
           Processing your payment...
@@ -40,6 +53,7 @@ export default function PayPalButton({
         }}
         createOrder={async () => {
           try {
+            setError(null);
             setIsProcessing(true);
             const response = await fetch('/api/paypal/create-order', {
               method: 'POST',
@@ -62,7 +76,8 @@ export default function PayPalButton({
             return data.orderId;
           } catch (error) {
             setIsProcessing(false);
-            const errorMessage =
+            const errorMessage =. Please check your connection and try again.';
+            setError(errorMessage)
               error instanceof Error ? error.message : 'Failed to create order';
             if (onError) {
               onError(errorMessage);
@@ -104,13 +119,11 @@ export default function PayPalButton({
             setIsProcessing(false);
             const errorMessage =
               error instanceof Error
-                ? error.message
-                : 'Failed to complete payment';
+                ? error.message. Please try again or contact support.';
+            setError(errorMessage);
             if (onError) {
               onError(errorMessage);
-            }
-            alert(
-              'There was an error processing your payment. Please try again or contact support.'
+            }'There was an error processing your payment. Please try again or contact support.'
             );
           }
         }}
@@ -118,16 +131,16 @@ export default function PayPalButton({
           setIsProcessing(false);
           alert('Payment was cancelled. You can try again when ready.');
         }}
-        onError={(err) => {
+        onsetError={(err) => {
           setIsProcessing(false);
           console.error('PayPal error:', err);
           const errorMessage = 'An error occurred with PayPal. Please try again.';
           if (onError) {
+            onError(errorMessage);This might be due to configuration issues. Please contact support if the problem persists.';
+          setError(errorMessage);
+          if (onError) {
             onError(errorMessage);
           }
-          alert(errorMessage);
-        }}
-      />
     </div>
   );
 }
