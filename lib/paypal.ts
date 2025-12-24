@@ -27,6 +27,13 @@ export async function getPayPalAccessToken(): Promise<string> {
     );
   }
 
+  // Validate that secret is not the same as client ID
+  if (clientSecret === clientId) {
+    throw new Error(
+      'PayPal Client Secret is incorrectly set to the same value as Client ID. Get the actual secret from PayPal Dashboard.'
+    );
+  }
+
   const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
   try {

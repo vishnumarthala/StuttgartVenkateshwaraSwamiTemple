@@ -76,9 +76,9 @@ export default function PayPalButton({
             return data.orderId;
           } catch (error) {
             setIsProcessing(false);
-            const errorMessage =. Please check your connection and try again.';
-            setError(errorMessage)
-              error instanceof Error ? error.message : 'Failed to create order';
+            const errorMessage =
+              error instanceof Error ? error.message : 'Failed to create order. Please check your connection and try again.';
+            setError(errorMessage);
             if (onError) {
               onError(errorMessage);
             }
