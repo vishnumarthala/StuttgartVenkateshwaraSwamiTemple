@@ -31,6 +31,7 @@ export default function PayPalButton({
         </div>
       )}
       <PayPalButtons
+        fundingSource={undefined}
         style={{
           layout: 'vertical',
           color: 'gold',

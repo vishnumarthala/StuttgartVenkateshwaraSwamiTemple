@@ -11,6 +11,9 @@ interface DonationFormProps {
 }
 
 export default function DonationForm({ tier, onClose }: DonationFormProps) {
+  const effectiveMinAmount = tier.id === 'general' && tier.isFlexible ? 1 : tier.minAmount;
+  const effectiveMaxAmount = tier.id === 'general' && tier.isFlexible ? tier.maxAmount : tier.maxAmount;
+
   const [donorInfo, setDonorInfo] = useState<DonorInfo>({
     name: '',
     email: '',
@@ -18,7 +21,7 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
     message: '',
   });
 
-  const [amount, setAmount] = useState<string>(tier.minAmount.toString());
+  const [amount, setAmount] = useState<string>(effectiveMinAmount.toString());
 
   const [errors, setErrors] = useState<{
     name?: string;
@@ -58,10 +61,10 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
     const numAmount = parseFloat(amount);
     if (!amount || isNaN(numAmount)) {
       newErrors.amount = 'Please enter a valid amount';
-    } else if (numAmount < tier.minAmount) {
-      newErrors.amount = `Minimum amount for this tier is €${tier.minAmount}`;
-    } else if (tier.maxAmount && numAmount > tier.maxAmount) {
-      newErrors.amount = `Maximum amount for this tier is €${tier.maxAmount}`;
+    } else if (numAmount < effectiveMinAmount) {
+      newErrors.amount = `Minimum amount for this tier is €${effectiveMinAmount}`;
+    } else if (effectiveMaxAmount && numAmount > effectiveMaxAmount) {
+      newErrors.amount = `Maximum amount for this tier is €${effectiveMaxAmount}`;
     }
 
     setErrors(newErrors);
@@ -125,7 +128,7 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
               tier.isFlexible ? 'text-green-800' : 'text-amber-800'
             }`}>
               {tier.isFlexible ? (
-                <>Amount Range: €{tier.minAmount} - €{tier.maxAmount || '∞'}</>
+                <>Amount Range: €{effectiveMinAmount} - €{effectiveMaxAmount || '∞'}</>
               ) : (
                 <>Amount: €{tier.minAmount}{tier.maxAmount && ` - €${tier.maxAmount}`}</>
               )}
@@ -201,19 +204,19 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 onBlur={handleBlur}
-                min={tier.minAmount}
-                max={tier.maxAmount || undefined}
+                min={effectiveMinAmount}
+                max={effectiveMaxAmount || undefined}
                 step="0.01"
                 className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
                   errors.amount ? 'border-red-500' : 'border-gray-300'
                 }`}
-                placeholder={`Enter amount (€${tier.minAmount} - €${tier.maxAmount || '∞'})`}
+                placeholder={`Enter amount (€${effectiveMinAmount} - €${effectiveMaxAmount || '∞'})`}
               />
               {errors.amount && (
                 <p className="mt-1 text-sm text-red-600">{errors.amount}</p>
               )}
               <p className="mt-1 text-xs text-gray-500">
-                Range: €{tier.minAmount} - €{tier.maxAmount || '∞'}
+                Range: €{effectiveMinAmount} - €{effectiveMaxAmount || '∞'}
               </p>
             </div>
 
@@ -307,8 +310,18 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
               />
             </div>
 
-            {/* PayPal Button */}
+            {/* Payment Section */}
             <div className="pt-4">
+              {isFormValid && (
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Select Payment Method
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Choose PayPal or pay with your debit/credit card
+                  </p>
+                </div>
+              )}
               {isFormValid ? (
                 <PayPalButton
                   amount={parsedAmount}

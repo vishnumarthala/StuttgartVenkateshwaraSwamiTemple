@@ -77,18 +77,12 @@ export default function TierCard({ tier, onPayPalClick }: TierCardProps) {
       </ul>
 
       {/* Payment Buttons */}
-      <div className="space-y-3">
+      <div className="mt-auto pt-4">
         <button
           onClick={() => onPayPalClick?.(tier)}
-          className="btn-primary w-full text-center block"
+          className="btn-primary w-full text-center block shadow-md hover:shadow-lg transform transition-all hover:-translate-y-0.5"
         >
-          {isFlexible ? 'Choose Your Amount' : 'Pay with Card'}
-        </button>
-        <button
-          onClick={() => onPayPalClick?.(tier)}
-          className="w-full text-center block bg-[#0070ba] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#005ea6] transition-colors"
-        >
-          Pay with PayPal
+          {isFlexible ? 'Donate Now' : 'Select This Tier'}
         </button>
       </div>
     </div>

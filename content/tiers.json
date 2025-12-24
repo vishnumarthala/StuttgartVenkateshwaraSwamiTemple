@@ -3,7 +3,7 @@
     "id": "general",
     "name": "General Donation",
     "minAmount": 1,
-    "maxAmount": null,
+    "maxAmount": 115,
     "benefits": [
       "Blessings from Lord Venkateshwara",
       "Recognition on our donor wall"
