@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import OmSymbol from '@/components/icons/OmSymbol';
 import ScrollArrow from '@/components/icons/ScrollArrow';
+import FallingFlowers from '@/components/home/FallingFlowers';
 
 export default function Hero() {
   return (
@@ -45,6 +46,9 @@ export default function Hero() {
           mixBlendMode: 'screen'
         }}
       />
+
+      {/* Falling Flowers Animation */}
+      <FallingFlowers />
 
       {/* Content Layer */}
       <div className="relative z-10 min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-4 pb-24">
