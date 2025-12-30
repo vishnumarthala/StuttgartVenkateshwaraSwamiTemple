@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { capturePayPalOrder } from '@/lib/paypal';
 import { supabase } from '@/lib/supabase';
+import { resend } from '@/lib/resend';
+import { generateDonationConfirmationEmail } from '@/lib/email-templates';
 
 export async function POST(request: NextRequest) {
   try {
@@ -51,7 +53,35 @@ export async function POST(request: NextRequest) {
           donor: donation.donor_name
         });
 
-        // TODO: Trigger email notification here (future enhancement)
+        // Send confirmation email to donor
+        try {
+          const emailHtml = generateDonationConfirmationEmail({
+            donorName: donation.donor_name,
+            donorEmail: donation.donor_email,
+            amount: donation.amount,
+            currency: donation.currency,
+            tierName: donation.tier_name,
+            transactionId: result.transactionId || donation.paypal_transaction_id || 'N/A',
+            donatedAt: donation.captured_at || new Date().toISOString(),
+            gotram: donation.donor_gotram || undefined,
+            message: donation.donor_message || undefined,
+          });
+
+          const emailResult = await resend.emails.send({
+            from: 'Sri Venkateshwara Temple Stuttgart <noreply@svtstuttgart.de>',
+            to: donation.donor_email,
+            subject: 'Thank You for Your Donation - Sri Venkateshwara Temple Stuttgart',
+            html: emailHtml,
+          });
+
+          console.log('Confirmation email sent:', {
+            emailId: emailResult.data?.id,
+            recipient: donation.donor_email
+          });
+        } catch (emailError) {
+          console.error('Failed to send confirmation email:', emailError);
+          // Don't fail the entire request if email fails
+        }
       }
     } catch (dbError) {
       console.error('Database error:', dbError);
