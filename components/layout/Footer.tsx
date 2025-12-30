@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Facebook, Instagram, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -70,6 +71,40 @@ export default function Footer() {
                 </a>
               </p>
             </address>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h4 className="text-temple-gold font-semibold mb-4">Follow Us</h4>
+            <div className="flex space-x-4 text-gray-300">
+              <a
+                href="https://www.instagram.com/svt_stuttgart"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-temple-gold transition-colors"
+              >
+                <span className="sr-only">Instagram</span>
+                <Instagram className="w-5 h-5" aria-hidden />
+              </a>
+              <a
+                href="https://www.youtube.com/@svtstuttgart"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-temple-gold transition-colors"
+              >
+                <span className="sr-only">YouTube</span>
+                <Youtube className="w-5 h-5" aria-hidden />
+              </a>
+              <a
+                href="https://www.facebook.com/people/Sri-Venkateshwara-Temple/61568532123940/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-temple-gold transition-colors"
+              >
+                <span className="sr-only">Facebook</span>
+                <Facebook className="w-5 h-5" aria-hidden />
+              </a>
+            </div>
           </div>
         </div>
 
