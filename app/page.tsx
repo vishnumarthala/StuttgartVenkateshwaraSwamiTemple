@@ -93,7 +93,7 @@ export default function HomePage() {
             </p>
             <div className="bg-temple-cream rounded-lg p-6 inline-block">
               <p className="font-mono text-lg text-temple-maroon">
-                IBAN: DE78 6025 0010 0015 0155 65
+                IBAN: DE78 6025 0010 0015 2373 56
               </p>
               <p className="text-sm text-gray-600 mt-2">
                 Sri Venkateshwara Temple Stuttgart gUG
