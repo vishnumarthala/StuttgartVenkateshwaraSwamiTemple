@@ -5,6 +5,7 @@ export interface SiteConfig {
   iban: string;
   contactEmail: string;
   contactPhone: string;
+  contactPhone2?: string;
   address: {
     street: string;
     city: string;

@@ -90,12 +90,22 @@ export default function ContactPage() {
                     <h3 className="text-lg font-semibold text-temple-dark-red mb-1">
                       Phone
                     </h3>
-                    <a
-                      href={`tel:${config.contactPhone.replace(/\s/g, '')}`}
-                      className="text-temple-dark-gray hover:text-temple-maroon transition-colors"
-                    >
-                      {config.contactPhone}
-                    </a>
+                    <div className="space-y-1">
+                      <a
+                        href={`tel:${config.contactPhone.replace(/\s/g, '')}`}
+                        className="block text-temple-dark-gray hover:text-temple-maroon transition-colors"
+                      >
+                        {config.contactPhone}
+                      </a>
+                      {config.contactPhone2 ? (
+                        <a
+                          href={`tel:${config.contactPhone2.replace(/\s/g, '')}`}
+                          className="block text-temple-dark-gray hover:text-temple-maroon transition-colors"
+                        >
+                          {config.contactPhone2}
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
