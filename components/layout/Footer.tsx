@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { Facebook, Instagram, MessageCircle, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -90,7 +89,7 @@ export default function Footer() {
                 className="hover:text-temple-gold transition-colors"
               >
                 <span className="sr-only">WhatsApp Group</span>
-                <FaWhatsapp className="w-5 h-5" aria-hidden />
+                <MessageCircle className="w-5 h-5" aria-hidden />
               </a>
               <a
                 href="https://www.instagram.com/svt_stuttgart"
@@ -127,7 +126,7 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-400">
-              © {currentYear} Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)
+              © {currentYear} Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.
             </p>
             <div className="flex space-x-6">
               <Link href="/impressum" className="text-sm text-gray-400 hover:text-temple-gold transition-colors">
