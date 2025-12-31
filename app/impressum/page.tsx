@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { getSiteConfig } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -7,8 +6,6 @@ export const metadata: Metadata = {
 };
 
 export default function ImpressumPage() {
-  const config = getSiteConfig();
-
   return (
     <div className="py-12 md:py-20">
       <div className="container-custom">
@@ -18,16 +15,16 @@ export default function ImpressumPage() {
           <div className="prose prose-lg text-temple-dark-gray">
             <section className="mb-8">
               <h2 className="text-xl font-serif text-temple-dark-red mb-4">
-                Angaben gemäß § 5 TMG
+                Angaben gemäß § 5 DDG
               </h2>
               <p>
-                <strong>{config.legalName}</strong>
+                <strong>Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)</strong>
                 <br />
-                {config.address.street}
+                Wankelstrasse 4/A
                 <br />
-                {config.address.postalCode} {config.address.city}
+                71272 Renningen
                 <br />
-                {config.address.country}
+                Germany
               </p>
             </section>
 
@@ -35,15 +32,15 @@ export default function ImpressumPage() {
               <h2 className="text-xl font-serif text-temple-dark-red mb-4">
                 Vertreten durch
               </h2>
-              <p>{config.representative}</p>
+              <p>Sivakumar Saminatha Sarma</p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-xl font-serif text-temple-dark-red mb-4">Kontakt</h2>
               <p>
-                Telefon: {config.contactPhone}
+                Telefon: +49 152 55749792 / +49 1511 9489119
                 <br />
-                E-Mail: {config.contactEmail}
+                E-Mail: svtstuttgart@gmail.com
               </p>
             </section>
 
@@ -52,24 +49,55 @@ export default function ImpressumPage() {
                 Registereintrag
               </h2>
               <p>
-                Gesellschaft mit beschränkter Haftung
+                Eintragung im Handelsregister.
                 <br />
-                <em>
-                  Die Registernummer wird nach Abschluss der Eintragung ergänzt.
-                </em>
+                Registergericht: Amtsgericht Stuttgart
+                <br />
+                Registernummer: HRB 802996
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-xl font-serif text-temple-dark-red mb-4">
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+                Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
               </h2>
               <p>
-                {config.representative}
+                Sivakumar Saminatha Sarma
                 <br />
-                {config.address.street}
+                Sri Venkateshwara Temple Stuttgart gUG
                 <br />
-                {config.address.postalCode} {config.address.city}
+                Wankelstrasse 4/A
+                <br />
+                71272 Renningen
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-xl font-serif text-temple-dark-red mb-4">
+                EU-Streitschlichtung
+              </h2>
+              <p>
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung
+                (OS) bereit:{' '}
+                <a
+                  href="https://ec.europa.eu/consumers/odr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-temple-maroon hover:underline"
+                >
+                  https://ec.europa.eu/consumers/odr
+                </a>
+                . Unsere E-Mail-Adresse finden Sie oben im Impressum.
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-xl font-serif text-temple-dark-red mb-4">
+                Verbraucherstreitbeilegung / Universalschlichtungsstelle
+              </h2>
+              <p>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+                vor einer Verbraucherschlichtungsstelle teilzunehmen.
               </p>
             </section>
 
@@ -82,12 +110,17 @@ export default function ImpressumPage() {
               <p>
                 Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für
                 die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können
-                wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir
-                gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
-                allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir
-                als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
+                wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für
+                eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+                verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder
                 gespeicherte fremde Informationen zu überwachen oder nach Umständen
                 zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+                Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+                Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+                Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden
+                von entsprechenden Rechtsverletzungen werden wir diese Inhalte
+                umgehend entfernen.
               </p>
 
               <h3 className="text-lg font-semibold mt-4 mb-2">Haftung für Links</h3>
@@ -96,7 +129,13 @@ export default function ImpressumPage() {
                 Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
                 fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
                 verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
-                der Seiten verantwortlich.
+                der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt
+                der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige
+                Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine
+                permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne
+                konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei
+                Bekanntwerden von Rechtsverletzungen werden wir derartige Links
+                umgehend entfernen.
               </p>
 
               <h3 className="text-lg font-semibold mt-4 mb-2">Urheberrecht</h3>
@@ -106,6 +145,13 @@ export default function ImpressumPage() {
                 Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
                 Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
                 schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+                kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite
+                nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter
+                beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet.
+                Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
+                bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
+                Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
               </p>
             </section>
           </div>
