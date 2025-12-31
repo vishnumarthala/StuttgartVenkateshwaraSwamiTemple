@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -82,6 +83,15 @@ export default function Footer() {
           <div>
             <h4 className="text-temple-gold font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4 text-gray-300">
+              <a
+                href="https://chat.whatsapp.com/HdvSNeSXWux6hGZwJ8Vh48"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-temple-gold transition-colors"
+              >
+                <span className="sr-only">WhatsApp Group</span>
+                <FaWhatsapp className="w-5 h-5" aria-hidden />
+              </a>
               <a
                 href="https://www.instagram.com/svt_stuttgart"
                 target="_blank"
