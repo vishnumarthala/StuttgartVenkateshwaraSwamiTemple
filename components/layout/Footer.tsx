@@ -66,7 +66,12 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href="mailto:Psvtstuttgart@gmail.com" className="hover:text-temple-gold transition-colors">
+                <a href="tel:+4915119489119" className="hover:text-temple-gold transition-colors">
+                  +49 1511 9489119
+                </a>
+              </p>
+              <p>
+                <a href="mailto:svtstuttgart@gmail.com" className="hover:text-temple-gold transition-colors">
                   svtstuttgart@gmail.com
                 </a>
               </p>
