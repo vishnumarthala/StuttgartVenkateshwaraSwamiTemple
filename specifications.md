@@ -2,7 +2,7 @@
 
 Version: 1.0 (Final)  
 Date: December 14, 2025  
-Legal Entity: Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.  
+Legal Entity: Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)  
 Status: Ready for Development
 
 ## **1\. Project Context**
@@ -123,11 +123,11 @@ interface CheckoutRequest {
 
 Must be accessible from every page (Footer).
 
-- **Entity:** Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.
+- **Entity:** Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)
 - **Address:** Wankelstrasse 4/A, 71272 Renningen.
 - **Representative:** Sri Kumaran Sharma.
 - **Contact:** \+49 152 55749792, Psvtstuttgart@gmail.com.
-- **Register Info:** Must state "in Gründung" (i.G.) until VR number is assigned.
+- **Register Info:** Must state "in Gründung" until VR number is assigned.
 
 ### **4.2 Datenschutz (GDPR)**
 

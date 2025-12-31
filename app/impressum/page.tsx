@@ -52,7 +52,7 @@ export default function ImpressumPage() {
                 Registereintrag
               </h2>
               <p>
-                Gesellschaft mit beschränkter Haftung in Gründung (i.G.)
+                Gesellschaft mit beschränkter Haftung
                 <br />
                 <em>
                   Die Registernummer wird nach Abschluss der Eintragung ergänzt.

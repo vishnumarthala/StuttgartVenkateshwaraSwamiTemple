@@ -121,7 +121,7 @@ export default function AboutPage() {
               The Organization
             </h2>
             <p className="text-temple-dark-gray leading-relaxed mb-4">
-              <strong>Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.</strong>{' '}
+              <strong>Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)</strong>{' '}
               is a registered non-profit organization (gemeinnützige Unternehmergesellschaft)
               established under German law. As a &ldquo;gUG,&rdquo; we are committed to
               charitable purposes, with all funds dedicated solely to temple

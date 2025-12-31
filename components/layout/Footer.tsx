@@ -127,7 +127,7 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-400">
-              © {currentYear} Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.
+              © {currentYear} Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)
             </p>
             <div className="flex space-x-6">
               <Link href="/impressum" className="text-sm text-gray-400 hover:text-temple-gold transition-colors">

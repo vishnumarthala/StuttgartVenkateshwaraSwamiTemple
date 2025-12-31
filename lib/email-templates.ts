@@ -104,7 +104,7 @@ export function generateDonationConfirmationEmail(data: DonationEmailData): stri
   
   <div style="background: #f8f9fa; padding: 20px; text-align: center; margin-top: 20px; border-radius: 8px; font-size: 12px; color: #666;">
     <p style="margin: 0 0 10px 0;"><strong>Sri Venkateshwara Temple Stuttgart</strong></p>
-    <p style="margin: 5px 0;">Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G.</p>
+    <p style="margin: 5px 0;">Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt)</p>
     <p style="margin: 5px 0;">Wankelstrasse 4/A, 71272 Renningen, Germany</p>
     <p style="margin: 5px 0;">
       <a href="mailto:svtstuttgart@gmail.com" style="color: #FF6B35; text-decoration: none;">svtstuttgart@gmail.com</a> | 
