@@ -9,15 +9,15 @@
   },
   {
     "id": "milestone-2",
-    "title": "Land Acquisition",
+    "title": "Temple Location",
     "description": "Secured location at Wankelstrasse 4/A, Renningen",
-    "date": "2025-11-01",
+    "date": "2025-10-01",
     "status": "completed",
     "icon": "map"
   },
   {
     "id": "milestone-3",
-    "title": "Bhumi pooja Ceremony",
+    "title": "Bhoomi Puja Ceremony",
     "description": "Bhoomi Puja and foundation stone laying",
     "date": "2025-11-01",
     "status": "completed",
