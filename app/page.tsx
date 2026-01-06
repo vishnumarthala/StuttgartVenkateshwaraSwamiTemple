@@ -1,10 +1,10 @@
-import Hero from '@/components/home/Hero';
-import AudioPlayer from '@/components/AudioPlayer';
-import SacredMantra from '@/components/home/SacredMantra';
-import MissionStatement from '@/components/home/MissionStatement';
-import ProgressTimeline from '@/components/home/ProgressTimeline';
-import { getMilestones, getDonationTiers } from '@/lib/content';
-import Link from 'next/link';
+import Hero from "@/components/home/Hero";
+import AudioPlayer from "@/components/AudioPlayer";
+import SacredMantra from "@/components/home/SacredMantra";
+import MissionStatement from "@/components/home/MissionStatement";
+import ProgressTimeline from "@/components/home/ProgressTimeline";
+import { getMilestones, getDonationTiers } from "@/lib/content";
+import Link from "next/link";
 
 export default function HomePage() {
   const milestones = getMilestones();
@@ -38,9 +38,9 @@ export default function HomePage() {
           {/* Donation CTA */}
           <div className="mt-16 max-w-4xl mx-auto text-center">
             <p className="text-lg text-temple-dark-gray mb-8">
-              Your contribution, no matter the size, brings us closer to our dream.
-              Every donation is a blessing that will be remembered in the temple&apos;s
-              history forever.
+              Your contribution, no matter the size, brings us closer to our
+              dream. Every donation is a blessing that will be remembered in the
+              temple&apos;s history forever.
             </p>
 
             {/* Featured Tier */}
@@ -96,7 +96,7 @@ export default function HomePage() {
                 IBAN: DE78 6025 0010 0015 2373 56
               </p>
               <p className="text-sm text-gray-600 mt-2">
-                Sri Venkateshwara Temple Stuttgart gUG
+                Sri Venkateshwara Temple Stuttgart gUG (haftungsbeschränkt) i.G
               </p>
             </div>
           </div>
