@@ -59,6 +59,11 @@ export async function POST(request: NextRequest) {
           donor_email: body.donorInfo.email,
           donor_gotram: body.donorInfo.gotram || null,
           donor_message: body.donorInfo.message || null,
+          // Address fields for tax receipts
+          donor_street: body.donorInfo.street || null,
+          donor_postal_code: body.donorInfo.postalCode || null,
+          donor_city: body.donorInfo.city || null,
+          donor_country: body.donorInfo.country || 'Germany',
           status: 'pending',
           tax_receipt_eligible: body.amount >= 300,
         })

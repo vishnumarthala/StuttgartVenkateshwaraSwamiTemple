@@ -69,6 +69,11 @@ export interface DonorInfo {
   email: string;
   gotram?: string;
   message?: string;
+  // Address fields for tax receipts (required for €300+)
+  street?: string;
+  postalCode?: string;
+  city?: string;
+  country?: string;
 }
 
 export interface PayPalOrderRequest {
@@ -99,10 +104,17 @@ export interface Donation {
   donor_email: string;
   donor_gotram: string | null;
   donor_message: string | null;
+  // Address fields for tax receipts
+  donor_street: string | null;
+  donor_postal_code: string | null;
+  donor_city: string | null;
+  donor_country: string | null;
   status: 'pending' | 'completed' | 'failed' | 'refunded';
   tax_receipt_eligible: boolean;
   tax_receipt_sent: boolean;
   tax_receipt_sent_at: string | null;
+  tax_receipt_document_url: string | null;
+  admin_notes: string | null;
   created_at: string;
   captured_at: string | null;
   updated_at: string;
@@ -117,8 +129,23 @@ export interface DonationInsert {
   donor_email: string;
   donor_gotram?: string;
   donor_message?: string;
+  // Address fields for tax receipts
+  donor_street?: string;
+  donor_postal_code?: string;
+  donor_city?: string;
+  donor_country?: string;
   status: 'pending' | 'completed' | 'failed';
   tax_receipt_eligible?: boolean;
+}
+
+// Admin User Types
+export interface AdminUser {
+  id: string;
+  user_id: string;
+  email: string;
+  role: 'admin' | 'super_admin';
+  created_at: string;
+  updated_at: string;
 }
 
 export interface DonationAnalytics {

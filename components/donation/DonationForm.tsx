@@ -19,6 +19,10 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
     email: '',
     gotram: '',
     message: '',
+    street: '',
+    postalCode: '',
+    city: '',
+    country: 'Germany',
   });
 
   const [amount, setAmount] = useState<string>(effectiveMinAmount.toString());
@@ -28,6 +32,9 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
     email?: string;
     gotram?: string;
     amount?: string;
+    street?: string;
+    postalCode?: string;
+    city?: string;
   }>({});
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -65,6 +72,19 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
       newErrors.amount = `Minimum amount for this tier is €${effectiveMinAmount}`;
     } else if (effectiveMaxAmount && numAmount > effectiveMaxAmount) {
       newErrors.amount = `Maximum amount for this tier is €${effectiveMaxAmount}`;
+    }
+
+    // Validate address fields for tax-receipt eligible donations (€300+)
+    if (isTaxReceiptEligible) {
+      if (!donorInfo.street?.trim()) {
+        newErrors.street = 'Street address is required for tax receipts';
+      }
+      if (!donorInfo.postalCode?.trim()) {
+        newErrors.postalCode = 'Postal code is required for tax receipts';
+      }
+      if (!donorInfo.city?.trim()) {
+        newErrors.city = 'City is required for tax receipts';
+      }
     }
 
     setErrors(newErrors);
@@ -309,6 +329,110 @@ export default function DonationForm({ tier, onClose }: DonationFormProps) {
                 placeholder="Any message or special requests..."
               />
             </div>
+
+            {/* Address Fields for Tax Receipt Eligible Donations */}
+            {isTaxReceiptEligible && (
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                <h4 className="text-md font-semibold text-gray-900 mb-3">
+                  Address for Tax Receipt (Spendenbescheinigung)
+                </h4>
+                <p className="text-sm text-gray-600 mb-4">
+                  Your donation of €{parsedAmount} qualifies for a German tax receipt. 
+                  Please provide your address for the official Spendenbescheinigung.
+                </p>
+                
+                {/* Street Address */}
+                <div className="mb-4">
+                  <label
+                    htmlFor="street"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Street Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="street"
+                    value={donorInfo.street}
+                    onChange={(e) => handleInputChange('street', e.target.value)}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                      errors.street ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                    placeholder="e.g., Musterstraße 123"
+                  />
+                  {errors.street && (
+                    <p className="mt-1 text-sm text-red-600">{errors.street}</p>
+                  )}
+                </div>
+
+                {/* Postal Code and City in a row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      htmlFor="postalCode"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Postal Code <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="postalCode"
+                      value={donorInfo.postalCode}
+                      onChange={(e) => handleInputChange('postalCode', e.target.value)}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                        errors.postalCode ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="e.g., 70173"
+                    />
+                    {errors.postalCode && (
+                      <p className="mt-1 text-sm text-red-600">{errors.postalCode}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="city"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      City <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      value={donorInfo.city}
+                      onChange={(e) => handleInputChange('city', e.target.value)}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                        errors.city ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="e.g., Stuttgart"
+                    />
+                    {errors.city && (
+                      <p className="mt-1 text-sm text-red-600">{errors.city}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Country */}
+                <div>
+                  <label
+                    htmlFor="country"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Country
+                  </label>
+                  <input
+                    type="text"
+                    id="country"
+                    value={donorInfo.country}
+                    onChange={(e) => handleInputChange('country', e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="Germany"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* Payment Section */}
             <div className="pt-4">
